@@ -1,0 +1,256 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Aurora Landing Page for futuristic aurora exploration with premium glassmorphism design." />
+  <title>Aurorac — Futuristic Aurora Experience</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://unpkg.com/three@0.152.2/build/three.min.js"></script>
+</head>
+
+<body>
+  <div class="scene" aria-hidden="true">
+    <div class="scene__stars"></div>
+    <div class="scene__aurora"></div>
+    <div class="scene__fog"></div>
+  </div>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#home">
+        <span class="brand-mark">A</span>
+        <span class="brand-name">Aurorac.</span>
+      </a>
+      <nav class="nav-menu" aria-label="Primary navigation">
+        <a href="#home">Home</a>
+        <a href="#features">Explore</a>
+        <a href="#map">Features</a>
+        <a href="#newsletter">Pricing</a>
+        <a href="#stats">About</a>
+      </nav>
+      <button class="btn btn-ghost">Sign In</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero section" id="home">
+      <div class="container hero-grid">
+        <div class="hero-copy scroll-reveal">
+          <span class="eyebrow">Luxury aurora interface</span>
+          <h1>Where futuristic skies meet premium exploration.</h1>
+          <p>Track aurora activity in real time, discover curated locations, and travel the night sky with an elegant interface built for modern explorers.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#features">Get Started</a>
+            <button class="btn btn-secondary" id="watchVideoBtn">Watch Demo</button>
+          </div>
+          <div class="hero-highlights">
+            <div>
+              <span>Live Aurora Alerts</span>
+              <strong>24/7 monitoring</strong>
+            </div>
+            <div>
+              <span>Exclusive routes</span>
+              <strong>Premium locations</strong>
+            </div>
+          </div>
+        </div>
+
+        <aside class="hero-panel glass-card scroll-reveal" data-parallax="0.16">
+          <div class="panel-badge">Aurora Forecast</div>
+          <div class="panel-location">
+            <div>
+              <p>Fairbanks, Alaska</p>
+              <span>USA</span>
+            </div>
+            <div class="panel-icon">📍</div>
+          </div>
+          <div class="panel-temperature">-12<span>°</span></div>
+          <p class="panel-description">Clear Sky · Optimal viewing conditions</p>
+          <div class="panel-footer">
+            <div>
+              <span>Visibility</span>
+              <strong>10 km</strong>
+            </div>
+            <div>
+              <span>Wind</span>
+              <strong>8 km/h</strong>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="features section" id="features">
+      <div class="container section-head scroll-reveal">
+        <span class="eyebrow">Premium features</span>
+        <h2>Designed to elevate every aurora adventure.</h2>
+      </div>
+      <div class="container feature-grid">
+        <article class="glass-card feature-card scroll-reveal" data-parallax="0.08">
+          <div class="icon-box">⚡</div>
+          <h3>Real-time Aurora Alerts</h3>
+          <p>Receive accurate sky updates and dynamic forecasts to never miss a luminous moment.</p>
+        </article>
+        <article class="glass-card feature-card scroll-reveal" data-parallax="0.1">
+          <div class="icon-box">🧭</div>
+          <h3>Discover New Places</h3>
+          <p>Explore curated destinations and premium vantage points with expert recommendations.</p>
+        </article>
+        <article class="glass-card feature-card scroll-reveal" data-parallax="0.12">
+          <div class="icon-box">📸</div>
+          <h3>Capture the Moment</h3>
+          <p>Save scenic discoveries and share luminous memories with your community instantly.</p>
+        </article>
+        <article class="glass-card feature-card scroll-reveal" data-parallax="0.1">
+          <div class="icon-box">🌐</div>
+          <h3>Community Connections</h3>
+          <p>Join a network of aurora explorers, photographers, and sky watchers around the globe.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="map-section section" id="map">
+      <div class="container scroll-reveal">
+        <div class="map-panel glass-card" data-parallax="0.12">
+          <div class="panel-header">
+            <div>
+              <span class="eyebrow">Live Aurora Map</span>
+              <h2>Explore global aurora activity in real time.</h2>
+            </div>
+            <button class="btn btn-secondary btn-map" id="exploreMapBtn">Explore Map</button>
+          </div>
+          <div class="map-visual" aria-label="Live aurora map visualization">
+            <div class="map-glow"></div>
+            <div id="globeContainer" class="map-globe-container"></div>
+            <div class="map-pin pin-a"></div>
+            <div class="map-pin pin-b"></div>
+            <div class="map-pin pin-c"></div>
+          </div>
+          <div class="map-stats">
+            <div>
+              <strong>7</strong>
+              <span>Locations Active</span>
+            </div>
+            <div>
+              <strong>5.3</strong>
+              <span>Kp index</span>
+            </div>
+            <div>
+              <strong>Moderate</strong>
+              <span>Storm Level</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="newsletter section" id="newsletter">
+      <div class="container newsletter-grid">
+        <aside class="glass-card subscribe-card scroll-reveal" data-parallax="0.14">
+          <span class="eyebrow">Stay in the loop</span>
+          <h3>Subscribe for aurora alerts and travel tips.</h3>
+          <form class="newsletter-form" id="newsletterForm">
+            <label class="visually-hidden" for="emailInput">Email address</label>
+            <input type="email" id="emailInput" placeholder="Your email address" required />
+            <button class="btn btn-primary" type="submit">Subscribe</button>
+          </form>
+          <p class="form-note">Join over 25,000+ explorers who receive premium aurora insights.</p>
+          <div class="avatar-row">
+            <div class="avatar">AM</div>
+            <div class="avatar">LJ</div>
+            <div class="avatar">SK</div>
+            <div class="avatar">ZN</div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="testimonial section" id="testimonials">
+      <div class="container testimonial-card glass-card scroll-reveal" data-parallax="0.1">
+        <div class="quote-mark">“</div>
+        <div class="testimonial-body">
+          <p>Aurorac changed the way I chase the night sky. The alerts are precise, the interface feels premium, and the community is inspiring.</p>
+          <div class="testimonial-author">
+            <div class="avatar author-avatar">JC</div>
+            <div>
+              <strong>James Carter</strong>
+              <span>Photographer</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="stats section" id="stats">
+      <div class="container stats-grid">
+        <article class="glass-card stat-card scroll-reveal" data-target="25" data-suffix="K+">
+          <strong>0</strong>
+          <span>Active Explorers</span>
+        </article>
+        <article class="glass-card stat-card scroll-reveal" data-target="120" data-suffix="+">
+          <strong>0</strong>
+          <span>Locations</span>
+        </article>
+        <article class="glass-card stat-card scroll-reveal" data-target="4.9" data-suffix="">
+          <strong>0.0</strong>
+          <span>App Rating</span>
+        </article>
+        <article class="glass-card stat-card scroll-reveal" data-target="98" data-suffix="%">
+          <strong>0</strong>
+          <span>Happy Users</span>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <span class="brand-mark">A</span>
+        <span class="brand-name">Aurorac.</span>
+      </div>
+      <div class="footer-links">
+        <a href="#home">Home</a>
+        <a href="#features">Explore</a>
+        <a href="#map">Features</a>
+        <a href="#newsletter">Subscribe</a>
+        <a href="#stats">About</a>
+      </div>
+      <div class="footer-social" aria-label="Social links">
+        <a href="#">TW</a>
+        <a href="#">IG</a>
+        <a href="#">LN</a>
+      </div>
+    </div>
+  </footer>
+
+  <div id="signin-modal" class="modal-overlay" aria-hidden="true">
+  <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="signin-title">
+    <button type="button" class="modal-close" aria-label="Close sign in modal">×</button>
+    <div class="modal-header">
+      <h2 id="signin-title">Welcome back, Explorer</h2>
+      <p>Securely access your aurora dashboard and live alerts.</p>
+    </div>
+    <form class="signin-form" id="signinForm">
+      <label for="signinEmail">Email or Username</label>
+      <input id="signinEmail" type="text" placeholder="you@example.com" required />
+      <label for="signinPassword">Password</label>
+      <input id="signinPassword" type="password" placeholder="••••••••" required />
+      <button type="submit" class="btn btn-primary modal-submit">Sign In</button>
+    </form>
+    <div class="modal-links">
+      <a href="#" class="modal-link">Forgot Password?</a>
+      <a href="#" class="modal-link">Don't have an account? Sign up</a>
+    </div>
+  </div>
+</div>
+
+  <script src="script.js"></script>
+</body>
+</html>

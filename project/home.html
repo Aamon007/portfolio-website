@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Personal Portfolio</title>
+    <!-- CSS link -->
+    <link rel="stylesheet" href="home.css">
+    <!-- Basic Icons -->
+    <link href="https://cdn.boxicons.com/3.0.8/fonts/basic/boxicons.min.css" rel="stylesheet">
+    <!-- Filled Icons -->
+     <link href="https://cdn.boxicons.com/3.0.8/fonts/filled/boxicons-filled.min.css" rel="stylesheet">
+    <!-- Brand Icons -->
+    <link href="https://cdn.boxicons.com/3.0.8/fonts/brands/boxicons-brands.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <!-- Header / Navigation Bar Section -->
+    <header class="header">
+        <a href="#" class="logo">Portfolio</a>
+        <nav class="navbar">
+            <a href="#home" class="active">Home</a>
+            <a href="shop.html">Shop</a>
+            <a href="skill.html">Skill</a>
+            <a href="#portfolio">Portfolio</a>
+            <a href="contant.html">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Home Section -->
+    <section class="home" id="home">
+        <div class="home-content">
+            <h3>Hello, It's Me</h3>
+              <h1 class="wave-text">
+                    <span>M</span>
+                    <span>I</span>
+                    <span>N</span>
+                    <span>K</span>
+                    <span>H</span>
+                    <span>A</span>
+                    <span>N</span>
+                    <span>T</span>
+                    <span>&nbsp;</span> <span>Z</span>
+                    <span>A</span>
+                    <span>W</span>
+              </h1>
+            <h3>And I'm a 
+                 <span class="change-text">
+                        <span class="text">Frontend Developer</span>
+                        <span class="text">Graphic Designer</span>
+                        <span class="text">Network Engineer</span>
+                        <span class="text">Programmer</span>
+                        <span class="text">Cyber Security</span>
+                        <span class="text">Ethical Hacker</span>
+                 </span>
+            </h3>
+            <p>I'm a passionate Frontend Developer and Networking enthusiast, currently expanding my skills in React, PHP, MySQL, Python, and Linux. My goal is to become a Full Stack Developer and build a successful career in Cybersecurity by creating modern, secure, and user-friendly web applications.....</p>
+            <div class="home-icon">
+                     <a href="https://www.facebook.com"><i class="bxl bx-meta"></i></a>
+                     <a href="https://www.youtube.com/"><i class="bxl bx-youtube"></i></a>
+                     <a href="https://www.tiktok.com/"><i class="bxl bx-tiktok"></i></a>
+                     <a href="https://github.com"><i class="bxl bx-github"></i></a>
+            </div>
+
+            <a href="https://spacecraft-hero-section-120900277736.europe-west2.run.app/" class="btn">More about us</a>
+        </div>
+
+        <div class="home-img">
+            <img src="photo_2026-07-07_21-41-10.jpg" alt="My Profile Picture">
+        </div>
+        
+    </section>
+
+    <!-- Type Animation Script -->
+    <script>
+        const words = ["Frontend Developer", "Graphic Designer", "Network Engineer", "Programmer", "Cyber Security", "Ethical Hacker"]; //
+        let wordIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        
+        const targetSpan = document.querySelector('.change-text .text');
+
+        function typeAnimation() {
+            const currentWord = words[wordIndex];
+            
+            if (isDeleting) {
+                targetSpan.textContent = currentWord.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                targetSpan.textContent = currentWord.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            let typeSpeed = isDeleting ? 50 : 100; 
+
+           
+            if (!isDeleting && charIndex === currentWord.length) {
+                typeSpeed = 1500; 
+                isDeleting = true;
+            } 
+            
+            else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                wordIndex = (wordIndex + 1) % words.length; 
+                typeSpeed = 500; 
+            }
+
+            setTimeout(typeAnimation, typeSpeed);
+        }
+        //Animation start 
+        document.addEventListener("DOMContentLoaded", () => {
+            
+            const extraSpans = document.querySelectorAll('.change-text .text');
+            extraSpans.forEach((span, index) => {
+                if(index > 0) span.style.display = 'none';
+            });
+            
+            typeAnimation();
+        });
+    </script>
+</body>
+</html>

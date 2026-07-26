@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me | System UI</title>
+    <link rel="stylesheet" href="about.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <div class="bg-overlay"></div>
+    
+    <header class="header">
+        <a href="#" class="logo">PORTFOLIO</a>
+        <nav class="navbar">
+            <a href="home.html">Home</a>
+            <a href="shop.html">Shop</a>
+            <a href="about.html" class="active">About</a>
+            <a href="skill.html">Skill</a>
+            <a href="contant.html">Contact</a>
+        </nav>
+    </header>
+
+    <div class="system-container">
+        <!-- Center Header -->
+        <div class="main-header">
+            <h1 class="glitch" data-text="ABOUT ME">ABOUT ME</h1>
+            <div class="header-sub">
+                <p>WELCOME, PLAYER.</p>
+                <p>THE SYSTEM IS NOW ACTIVE.</p>
+            </div>
+        </div>
+
+        <div class="grid-layout">
+            <!-- Left Column -->
+            <div class="side-col">
+                <div class="system-box status">
+                    <div class="box-tag">STATUS</div>
+                    <div class="box-inner">
+                        <p>NAME: <span>MINKHANT ZAW</span></p>
+                        <p>LVL: <span>Professional</span></p>
+                        <p>JOB: <span>NOC ENGINEER</span></p>
+                        <div class="bar-group">
+                            <label>HP</label>
+                            <div class="bar"><div class="fill hp" style="width: 85%"></div></div>
+                        </div>
+                        <div class="bar-group">
+                            <label>MP</label>
+                            <div class="bar"><div class="fill mp" style="width: 70%"></div></div>
+                        </div>
+                        <ul class="stats-list">
+                            <li>STR: 85 <span class="plus">(+ )</span></li>
+                            <li>AGI: 90 <span class="plus">(+)</span></li>
+                            <li>INT: 95 <span class="plus">(+)</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="system-box skills">
+                    <div class="box-tag">SKILLS</div>
+                    <div class="box-inner">
+                        <div class="skill-item">LV.MAX - HTML/CSS/JS</div>
+                        <div class="skill-item">LV.80 - PYTHON</div>
+                        <div class="skill-item">LV.75 - NETWORKING</div>
+                        <div class="skill-item">LV.60 - CYBERSECURITY</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Center Column -->
+            <div class="system-box notification-box">
+                <div class="box-inner">
+                    <div class="noti-header"><i class='bx bxs-bell-ring'></i> SYSTEM MESSAGE</div>
+                    <div id="notiTextContainer" class="noti-content">
+                    </div>
+                </div>
+            </div>
+
+
+                <div class="profile-display">
+                    <div class="profile-frame">
+                        <img src="photo_2026-07-07_21-41-10.jpg" alt="Profile Picture">
+                    </div>
+                    <div class="player-id">MY_ID: #271104</div>
+                </div>
+
+                <div class="quote-container">
+                    <p>"THE STRONGER THE <span class="highlight">PAIN</span>, THE STRONGER <span class="highlight">I BECOME</span>."</p>
+                </div>
+            </div>
+
+            <!-- Right Column -->
+            <div class="side-col">
+                <div class="system-box inventory">
+                    <div class="box-tag">INVENTORY</div>
+                    <div class="box-inner">
+                        <div class="inv-item"><i class='bx bx-laptop'></i> VIVOBOOK 16 [E]</div>
+                        <div class="inv-item"><i class='bx bx-code-alt'></i> VS CODE [E]</div>
+                        <div class="inv-item"><i class='bx bx-terminal'></i> PACKET TRACER</div>
+                        <div class="inv-item"><i class='bx bx-cog'></i> n8n AUTOMATION</div>
+                    </div>
+                </div>
+
+                <div class="system-box quest">
+                    <div class="box-tag">QUEST</div>
+                    <div class="box-inner">
+                        <p class="quest-label">[MAIN QUEST]</p>
+                        <p class="quest-text">REACH THE TOP OF TECH WORLD.</p>
+                        <p>REWARD: <span>EXPERT STATUS</span></p>
+                        <div class="progress-group">
+                            <div class="bar"><div class="fill" style="width: 45%"></div></div>
+                            <span>PROGRESS: 45%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="system-box logs">
+                    <div class="box-tag">SYSTEM LOG</div>
+                    <div class="box-inner log-content" id="logBox">
+                        <p>[SYS] PLAYER DETECTED...</p>
+                        <p>[SYS] LOADING ASSETS...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="about.js"></script>
+</body>
+</html>

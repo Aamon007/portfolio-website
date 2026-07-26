@@ -1,0 +1,163 @@
+[
+  {
+    "id": "p01",
+    "name": "APEX STRIKE X1",
+    "category": "keyboards",
+    "price": 189,
+    "desc": "Ultra-responsive optical switches with per-key RGB.",
+    "image": "https://images.unsplash.com/photo-1511467687858-23d96c32e4ae?auto=format&fit=crop&w=900&q=80"
+  },
+  {
+    "id": "p02",
+    "name": "NEURAL LINK M1",
+    "category": "mice",
+    "price": 129,
+    "desc": "Zero-latency wireless technology with weight-tuning.",
+    "image": "https://images.pexels.com/photos/33303045/pexels-photo-33303045.jpeg"
+  },
+  {
+    "id": "p03",
+    "name": "SONIC PULSE H7",
+    "category": "headsets",
+    "price": 249,
+    "desc": "Spatial audio drivers with active noise cancellation.",
+    "image": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=900&q=80"
+  },
+  {
+    "id": "p04",
+    "name": "CORE MINI 60",
+    "category": "keyboards",
+    "price": 149,
+    "desc": "Compact tournament-ready design with detachable USB-C.",
+    "image": "https://images.unsplash.com/photo-1595225476474-87563907a212?auto=format&fit=crop&w=900&q=80"
+  },
+  {
+    "id": "p05",
+    "name": "GHOST DRIFT X",
+    "category": "mice",
+    "price": 109,
+    "desc": "The world's lightest gaming mouse for pro-level speed.",
+    "image": "https://media.istockphoto.com/id/1999227567/photo/wireless-bluetooth-usb-optical-mouse-for-gaming.jpg?b=1&s=612x612&w=0&k=20&c=Z8CKHyxHmzuN1Bmh0qppHQxMqf8YuooeL-scpdLd-ww="
+  },
+
+  {
+    "id": "p06",
+    "name": "TITAN ECHO 3",
+    "category": "headsets",
+    "price": 299,
+    "desc": "Immersive haptic feedback translates sound into feeling.",
+    "image": "https://images.pexels.com/photos/12920900/pexels-photo-12920900.jpeg"
+  },
+  {
+    "id": "p07",
+    "name": "NOVA STRIKE V2",
+    "category": "keyboards",
+    "price": 219,
+    "desc": "Low-profile mechanical switches with hot-swap PCB.",
+    "image": "https://media.istockphoto.com/id/1356366044/photo/black-mechanical-keyboard-on-white-background-blue-neon-light.jpg?b=1&s=612x612&w=0&k=20&c=1eoGhUEtkFdg9N4YnzCQlwxKhRBFFOLVgFEbDVXLecE="
+  },
+  {
+    "id": "p08",
+    "name": "PHANTOM SCROLL Z",
+    "category": "mice",
+    "price": 139,
+    "desc": "Adaptive sensor that tunes to surface for perfect tracking.",
+    "image": "https://images.pexels.com/photos/28779688/pexels-photo-28779688.jpeg"
+  },
+  {
+    "id": "p09",
+    "name": "ORBITAL SONIX",
+    "category": "headsets",
+    "price": 179,
+    "desc": "Lightweight headset with crisp mids and extended highs.",
+    "image": "https://images.unsplash.com/photo-1546435770-a3e426bf472b?auto=format&fit=crop&w=900&q=80"
+  },
+  {
+    "id": "p10",
+    "name": "ALCHEMY TKL",
+    "category": "keyboards",
+    "price": 159,
+    "desc": "Tenkeyless, premium aluminum frame with addressable RGB.",
+    "image": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=900&q=80"
+  },
+  {
+    "id": "p11",
+    "name": "VELOCITY CORE",
+    "category": "mice",
+    "price": 89,
+    "desc": "Ergonomic shape with customizable button maps.",
+    "image": "https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?auto=format&fit=crop&w=900&q=80"
+  },
+  {
+    "id": "p12",
+    "name": "EPOCH WAVER",
+    "category": "headsets",
+    "price": 219,
+    "desc": "Studio-grade drivers with balanced sound signature.",
+    "image": "https://media.istockphoto.com/id/1438540726/photo/game-room-interior-with-modern-ambient-lights-and-powerful-supercomputers.jpg?b=1&s=612x612&w=0&k=20&c=F_UTyHYsae0VZpOpgCSElJFscMYEk2yjn39uH-QdOPU="
+  },
+  {
+    "id": "p13",
+    "name": "QUANTUM KEYS PRO",
+    "category": "keyboards",
+    "price": 259,
+    "desc": "Optical actuation, per-key macros, and cloud profiles.",
+    "image": "https://images.pexels.com/photos/19012036/pexels-photo-19012036.jpeg"
+  },
+  {
+    "id": "p14",
+    "name": "RAPTOR WIRELESS",
+    "category": "mice",
+    "price": 169,
+    "desc": "Dual-mode connection with ultra-long battery life.",
+    "image": "https://images.pexels.com/photos/19012038/pexels-photo-19012038.jpeg"
+  },
+  {
+    "id": "p15",
+    "name": "AURORA BEAT",
+    "category": "headsets",
+    "price": 129,
+    "desc": "Comfort-first design with breathable ear cushions.",
+    "image": "https://media.istockphoto.com/id/952487512/photo/bright-blue-headphones-on-yellow.jpg?b=1&s=612x612&w=0&k=20&c=RjWRlskBO6qj5g_72HsZkiLiL7MzZDgGbNmYf3bC34U="
+  },
+  {
+    "id": "p16",
+    "name": "CIRCUIT MINIMUS",
+    "category": "keyboards",
+    "price": 99,
+    "desc": "Affordable compact keyboard for minimalists.",
+    "image": "https://images.pexels.com/photos/7047322/pexels-photo-7047322.jpeg"
+  },
+  {
+    "id": "p17",
+    "name": "STEALTH GLIDE",
+    "category": "mice",
+    "price": 119,
+    "desc": "Silent switches and ultra-smooth feet for stealth play.",
+    "image": "https://media.istockphoto.com/id/1091778794/photo/computer-mouse-isolated-on-white.jpg?b=1&s=612x612&w=0&k=20&c=7GnFpLEdbihRzbzWmZbLEMvZFpRzaYpYA3r_eLXMM30="
+  },
+  {
+    "id": "p18",
+    "name": "PHOENIX SONIC",
+    "category": "headsets",
+    "price": 349,
+    "desc": "High-end audiophile headset built for immersion.",
+    "image": "https://media.istockphoto.com/id/2166412804/photo/headphones-with-particles-on-neon-lighting-purple-background-minimal-music-concept.jpg?b=1&s=612x612&w=0&k=20&c=F5doKGrEWYozhI1tkWugchyVBYm4WGZJ1vGAtjtDJ-c="
+  },
+  {
+    "id": "p19",
+    "name": "VECTOR MECH",
+    "category": "keyboards",
+    "price": 199,
+    "desc": "Durable switches rated for 100M keypresses with RGB.",
+    "image": "https://media.istockphoto.com/id/1163494182/photo/modern-computer-keyboard-for-gamers-with-neon-light-colorful-concept.jpg?b=1&s=612x612&w=0&k=20&c=4pXTUVNxFYsuUNvfu2UTb73v2EeOWbkOgL5r6wESd80="
+  },
+  {
+    "id": "p20",
+    "name": "EMBER TRACKER",
+    "category": "mice",
+    "price": 219,
+    "desc": "High-precision sensor tuned for pro gamers.",
+    "image": "https://images.pexels.com/photos/37958688/pexels-photo-37958688.jpeg"
+  }
+]

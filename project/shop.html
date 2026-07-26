@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop - Elite Arsenal</title>
+    <link rel="stylesheet" href="shop.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+         <header class="header">
+            <a href="home.html" class="logo">Portfolio.</a>
+            <nav class="navbar">
+                <a href="home.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="service.html">Services</a>
+                <a href="skill.html">Skills</a>
+                <a href="shop.html" class="active">Shop</a> <a href="contant.html">Contact</a>
+            </nav>
+         </header>
+
+    <div class="shop-container">
+        <aside class="sidebar">
+            <div class="filter-section">
+                <h3>My FILTER</h3>
+                <p class="sub-text">ELITE GEAR ONLY</p>
+                
+                <ul class="filter-list">
+                    <li class="active" data-cat="all"><i class='bx bx-grid-alt'></i> ALL</li>
+                    <li data-cat="keyboards"><i class='bx bx-keyboard'></i> KEYBOARDS</li>
+                    <li data-cat="mice"><i class='bx bx-mouse'></i> MOUSE</li>
+                    <li data-cat="headsets"><i class='bx bx-headphone'></i> HEADSETS</li>
+                </ul>
+
+                <div class="price-range">
+                    <h4>PRICE RANGE</h4>
+                    <input type="range" min="0" max="500" value="250" class="slider" id="priceRange">
+                    <div class="price-labels">
+                        <span>$0</span>
+                        <span>$500+</span>
+                    </div>
+                </div>
+
+                <button class="btn-apply">APPLY FILTERS</button>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="shop-header">
+                <span class="line"></span>
+                <h3>ELITE ARSENAL</h3>
+                <h1>EQUIP FOR SUPREMACY</h1>
+            </header>
+
+            <div id="productGrid" class="product-grid">
+                <!-- Products will be rendered here from data/products.json -->
+            </div>
+        </main>
+    </div>
+
+    <div id="productModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-body">
+                <div class="modal-img">
+                    <img id="modalImg" src="" alt="">
+                </div>
+                <div class="modal-details">
+                    <h3 id="modalCategory">CATEGORY</h3>
+                    <h1 id="modalTitle">Product Title</h1>
+                    <p id="modalPrice">$0.00</p>
+                    <p id="modalDesc">Full product description goes here...</p>
+                    <div class="modal-actions">
+                        <button class="buy-now-large">ADD TO CART</button>
+                        <button class="wishlist-large"><i class='bx bx-heart'></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ၁။ Header ထဲက logo ဘေးမှာ ဒါလေး ထည့်ပါ -->
+<div class="cart-icon" onclick="toggleCart()" style="cursor:pointer; position:relative; font-size: 2rem; color: #ffcc00;">
+    <i class='bx bx-shopping-bag'></i>
+    <span id="cartCount" style="position:absolute; top:-5px; right:-10px; background:red; color:white; font-size:0.7rem; padding:2px 6px; border-radius:50%;">0</span>
+</div>
+
+
+<!-- Cart Sidebar -->
+<div id="cartSidebar" style="position:fixed; top:0; right:-400px; width:350px; height:100%; background:#111; z-index:2000; padding:30px; transition:0.4s; border-left:1px solid #ffcc00; color:white;">
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:30px; border-bottom:1px solid #333;">
+        <h2>YOUR CART</h2>
+        <span onclick="toggleCart()" style="font-size:2rem; cursor:pointer; color:#ffcc00;">&times;</span>
+    </div>
+    <div id="cartItems" style="height:60%; overflow-y:auto; margin-bottom:20px;"></div>
+    <div style="font-size:1.5rem; text-align:right; margin-bottom:20px; color:#ffcc00;">Total: $<span id="totalAmount">0</span></div>
+    <button onclick="openCheckout()" style="width:100%; background:#ffcc00; color:black; padding:15px; border:none; font-weight:900; cursor:pointer;">PROCEED TO CASH PAY</button>
+</div>
+
+<!-- Cash Pay Modal -->
+<div id="payModal" class="modal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.9); z-index:3000; justify-content:center; align-items:center;">
+    <div style="background:#151515; padding:40px; width:90%; max-width:500px; border:1px solid #ffcc00; text-align:center; color:white;">
+        <h2 style="color:#ffcc00; margin-bottom:20px;">CASH PAYMENT</h2>
+        <input type="text" placeholder="Full Name" style="width:100%; padding:10px; margin-bottom:10px; background:#000; border:1px solid #333; color:white;">
+        <input type="text" placeholder="Phone Number" style="width:100%; padding:10px; margin-bottom:10px; background:#000; border:1px solid #333; color:white;">
+        <p>Total Payable: $<span id="modalTotal">0</span></p>
+        <button onclick="confirmPayment()" style="width:100%; background:#ffcc00; color:black; padding:12px; border:none; font-weight:700; margin-top:20px; cursor:pointer;">CONFIRM PAYMENT</button>
+        <button onclick="closeCheckout()" style="background:none; border:none; color:#888; margin-top:10px; cursor:pointer;">Cancel</button>
+    </div>
+</div>
+
+
+    <script src="shop.js"></script>
+</body>
+</html>

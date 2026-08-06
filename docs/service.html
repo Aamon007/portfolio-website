@@ -1,365 +1,499 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Our Services | Tech Solutions</title>
-    
+
     <!-- Fonts & Icons -->
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Poppins:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
 
     <style>
-        /* --- CSS Section --- */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        :root { --main: #ffcc00; --main-dim: rgba(255, 204, 0, 0.3 ); --bg: #0a0a0a; }
+      /* --- CSS Section --- */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      :root {
+        --main: #ffcc00;
+        --main-dim: rgba(255, 204, 0, 0.3);
+        --bg: #0a0a0a;
+      }
 
-        body { background: var(--bg); color: #fff; font-family: 'Poppins', sans-serif; overflow-x: hidden; }
+      body {
+        background: var(--bg);
+        color: #fff;
+        font-family: "Poppins", sans-serif;
+        overflow-x: hidden;
+      }
 
-        /* Navigation */
-        .header {
-            position: fixed; top: 0; left: 0; width: 100%;
-            padding: 1.5rem 5%; background: rgba(0, 0, 0, 0.95);
-            display: flex; justify-content: space-between; align-items: center;
-            z-index: 1000; border-bottom: 1px solid var(--main-dim);
+      /* Navigation */
+      .header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 1.5rem 5%;
+        background: rgba(0, 0, 0, 0.95);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 1000;
+        border-bottom: 1px solid var(--main-dim);
+      }
+      .logo {
+        font-family: "Orbitron";
+        color: var(--main);
+        text-decoration: none;
+        font-size: 1.8rem;
+        font-weight: 900;
+        letter-spacing: 2px;
+      }
+      .navbar a {
+        color: #fff;
+        text-decoration: none;
+        margin-left: 2rem;
+        font-size: 1rem;
+        transition: 0.3s;
+      }
+      .navbar a.active,
+      .navbar a:hover {
+        color: var(--main);
+      }
+
+      /* Background */
+      .tech-bg {
+        position: fixed;
+        inset: 0;
+        z-index: -1;
+        background:
+          linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)),
+          url("https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1920")
+            center/cover;
+        opacity: 0.4;
+      }
+
+      .services-section {
+        padding: 150px 5% 50px;
+        text-align: center;
+      }
+      .services-header h1 {
+        font-family: "Orbitron";
+        font-size: 4rem;
+        color: var(--main);
+        text-shadow: 0 0 20px var(--main-dim);
+        margin-bottom: 10px;
+      }
+      .services-header p {
+        color: #888;
+        font-size: 0.9rem;
+        letter-spacing: 2px;
+      }
+
+      /* Grid */
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2rem;
+        margin-top: 5rem;
+        perspective: 1000px;
+      }
+
+      .service-card {
+        background: rgba(20, 20, 20, 0.9);
+        padding: 4rem 2rem;
+        border: 1px solid #222;
+        cursor: pointer;
+        transition: 0.4s;
+        position: relative;
+        overflow: hidden;
+        transform-style: preserve-3d;
+      }
+      .service-card:hover {
+        border-color: var(--main);
+        box-shadow: 0 10px 30px rgba(255, 204, 0, 0.15);
+      }
+      .service-card i {
+        font-size: 4rem;
+        color: var(--main);
+        margin-bottom: 1.5rem;
+      }
+      .service-card h4 {
+        font-family: "Orbitron";
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+        color: #fff;
+      }
+      .service-card p {
+        font-size: 0.85rem;
+        color: #888;
+        line-height: 1.6;
+      }
+
+      /* Modal */
+      .s-modal {
+        display: none;
+        position: fixed;
+        z-index: 2000;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.95);
+        backdrop-filter: blur(10px);
+        justify-content: center;
+        align-items: center;
+      }
+      .s-modal-content {
+        background: #111;
+        border: 1px solid var(--main);
+        width: 90%;
+        max-width: 600px;
+        padding: 50px;
+        text-align: center;
+        position: relative;
+        animation: modalIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      }
+      @keyframes modalIn {
+        from {
+          transform: scale(0.7);
+          opacity: 0;
         }
-        .logo { font-family: 'Orbitron'; color: var(--main); text-decoration: none; font-size: 1.8rem; font-weight: 900; letter-spacing: 2px; }
-        .navbar a { color: #fff; text-decoration: none; margin-left: 2rem; font-size: 1rem; transition: 0.3s; }
-        .navbar a.active, .navbar a:hover { color: var(--main); }
+        to {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+      .s-close {
+        position: absolute;
+        top: 20px;
+        right: 25px;
+        font-size: 30px;
+        color: var(--main);
+        cursor: pointer;
+      }
+      #s-modal-icon {
+        font-size: 5rem;
+        color: var(--main);
+        margin-bottom: 20px;
+      }
+      #s-modal-title {
+        font-family: "Orbitron";
+        color: var(--main);
+        margin-bottom: 20px;
+      }
+      #s-modal-desc {
+        line-height: 1.8;
+        color: #ccc;
+        margin-bottom: 30px;
+      }
+      .s-btn-contact {
+        background: var(--main);
+        color: #000;
+        padding: 12px 35px;
+        border: none;
+        font-family: "Orbitron";
+        font-weight: 900;
+        cursor: pointer;
+      }
 
-        /* Background */
-        .tech-bg {
-            position: fixed; inset: 0; z-index: -1;
-            background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), 
-                        url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1920' ) center/cover;
-            opacity: 0.4;
+      /* Hamburger Menu */
+      .menu-toggle {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+        padding: 0.5rem;
+        z-index: 1001;
+      }
+
+      .menu-toggle span {
+        display: block;
+        width: 2.5rem;
+        height: 0.3rem;
+        background: var(--main);
+        border-radius: 2px;
+        transition: 0.3s ease;
+      }
+
+      @media (max-width: 992px) {
+        .services-section {
+          padding: 120px 4% 30px;
         }
 
-        .services-section { padding: 150px 5% 50px; text-align: center; }
-        .services-header h1 { font-family: 'Orbitron'; font-size: 4rem; color: var(--main); text-shadow: 0 0 20px var(--main-dim); margin-bottom: 10px; }
-        .services-header p { color: #888; font-size: 0.9rem; letter-spacing: 2px; }
+        .services-header h1 {
+          font-size: 2.5rem;
+        }
 
-        /* Grid */
         .services-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem; margin-top: 5rem; perspective: 1000px;
+          grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+          gap: 1.5rem;
         }
 
         .service-card {
-            background: rgba(20, 20, 20, 0.9); padding: 4rem 2rem;
-            border: 1px solid #222; cursor: pointer; transition: 0.4s;
-            position: relative; overflow: hidden; transform-style: preserve-3d;
+          padding: 2.5rem 1.5rem;
         }
-        .service-card:hover { border-color: var(--main); box-shadow: 0 10px 30px rgba(255, 204, 0, 0.15); }
-        .service-card i { font-size: 4rem; color: var(--main); margin-bottom: 1.5rem; }
-        .service-card h4 { font-family: 'Orbitron'; font-size: 1.2rem; margin-bottom: 1rem; color: #fff; }
-        .service-card p { font-size: 0.85rem; color: #888; line-height: 1.6; }
+      }
 
-        /* Modal */
-        .s-modal {
-            display: none; position: fixed; z-index: 2000; inset: 0;
-            background: rgba(0,0,0,0.95); backdrop-filter: blur(10px);
-            justify-content: center; align-items: center;
+      @media (max-width: 768px) {
+        .header {
+          padding: 1rem 5%;
         }
+
+        .menu-toggle {
+          display: flex;
+        }
+
+        .navbar {
+          position: fixed;
+          top: 0;
+          right: -100%;
+          width: 70%;
+          height: 100vh;
+          background: rgba(0, 0, 0, 0.95);
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          gap: 1.5rem;
+          transition: 0.3s ease;
+          border-left: 1px solid var(--main-dim);
+          z-index: 1000;
+        }
+
+        .navbar.active {
+          right: 0;
+        }
+
+        .navbar a {
+          margin-left: 0;
+          font-size: 1rem;
+        }
+
+        .services-section {
+          padding: 100px 3% 20px;
+        }
+
+        .services-header h1 {
+          font-size: 2rem;
+        }
+
+        .services-header p {
+          font-size: 0.7rem;
+        }
+
+        .services-grid {
+          grid-template-columns: 1fr;
+          gap: 1rem;
+          margin-top: 3rem;
+        }
+
+        .service-card {
+          padding: 2rem 1rem;
+        }
+
+        .service-card i {
+          font-size: 3rem;
+        }
+
+        .service-card h4 {
+          font-size: 1rem;
+        }
+
+        .service-card p {
+          font-size: 0.75rem;
+        }
+
+        .services-footer {
+          margin-top: 50px;
+          padding: 40px 3%;
+        }
+
+        .btn-grow-main {
+          padding: 12px 25px;
+          font-size: 0.8rem;
+        }
+
+        .contact-bar {
+          flex-direction: column;
+          gap: 10px;
+          align-items: center;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .services-header h1 {
+          font-size: 1.6rem;
+        }
+
+        .services-section {
+          padding: 80px 2% 15px;
+        }
+
+        .service-card {
+          padding: 1.5rem 0.8rem;
+        }
+
         .s-modal-content {
-            background: #111; border: 1px solid var(--main);
-            width: 90%; max-width: 600px; padding: 50px; text-align: center;
-            position: relative; animation: modalIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+          width: 95%;
+          padding: 30px 20px;
         }
-        @keyframes modalIn { from { transform: scale(0.7); opacity: 0; } to { transform: scale(1); opacity: 1; } }
-        .s-close { position: absolute; top: 20px; right: 25px; font-size: 30px; color: var(--main); cursor: pointer; }
-        #s-modal-icon { font-size: 5rem; color: var(--main); margin-bottom: 20px; }
-        #s-modal-title { font-family: 'Orbitron'; color: var(--main); margin-bottom: 20px; }
-        #s-modal-desc { line-height: 1.8; color: #ccc; margin-bottom: 30px; }
-        .s-btn-contact { background: var(--main); color: #000; padding: 12px 35px; border: none; font-family: 'Orbitron'; font-weight: 900; cursor: pointer; }
-
-        /* Hamburger Menu */
-.menu-toggle {
-    display: none;
-    flex-direction: column;
-    gap: 5px;
-    cursor: pointer;
-    padding: 0.5rem;
-    z-index: 1001;
-}
-
-.menu-toggle span {
-    display: block;
-    width: 2.5rem;
-    height: 0.3rem;
-    background: var(--main);
-    border-radius: 2px;
-    transition: .3s ease;
-}
-
-@media (max-width: 992px) {
-    .services-section {
-        padding: 120px 4% 30px;
-    }
-
-    .services-header h1 {
-        font-size: 2.5rem;
-    }
-
-    .services-grid {
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 1.5rem;
-    }
-
-    .service-card {
-        padding: 2.5rem 1.5rem;
-    }
-}
-
-@media (max-width: 768px) {
-    .header {
-        padding: 1rem 5%;
-    }
-
-    .menu-toggle {
-        display: flex;
-    }
-
-    .navbar {
-        position: fixed;
-        top: 0;
-        right: -100%;
-        width: 70%;
-        height: 100vh;
-        background: rgba(0, 0, 0, 0.95);
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 1.5rem;
-        transition: .3s ease;
-        border-left: 1px solid var(--main-dim);
-        z-index: 1000;
-    }
-
-    .navbar.active {
-        right: 0;
-    }
-
-    .navbar a {
-        margin-left: 0;
-        font-size: 1rem;
-    }
-
-    .services-section {
-        padding: 100px 3% 20px;
-    }
-
-    .services-header h1 {
-        font-size: 2rem;
-    }
-
-    .services-header p {
-        font-size: 0.7rem;
-    }
-
-    .services-grid {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-        margin-top: 3rem;
-    }
-
-    .service-card {
-        padding: 2rem 1rem;
-    }
-
-    .service-card i {
-        font-size: 3rem;
-    }
-
-    .service-card h4 {
-        font-size: 1rem;
-    }
-
-    .service-card p {
-        font-size: 0.75rem;
-    }
-
-    .services-footer {
-        margin-top: 50px;
-        padding: 40px 3%;
-    }
-
-    .btn-grow-main {
-        padding: 12px 25px;
-        font-size: 0.8rem;
-    }
-
-    .contact-bar {
-        flex-direction: column;
-        gap: 10px;
-        align-items: center;
-    }
-}
-
-@media (max-width: 576px) {
-    .services-header h1 {
-        font-size: 1.6rem;
-    }
-
-    .services-section {
-        padding: 80px 2% 15px;
-    }
-
-    .service-card {
-        padding: 1.5rem 0.8rem;
-    }
-
-    .s-modal-content {
-        width: 95%;
-        padding: 30px 20px;
-    }
-}
-</style>
-</head>
-<body>
+      }
+    </style>
+  </head>
+  <body>
     <div class="tech-bg"></div>
-    
-<header class="header">
-        <a href="home.html" class="logo">PORTFOLIO</a>
-        <div class="menu-toggle" id="menuToggle">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-        <nav class="navbar" id="navbar">
-            <a href="home.html">Home</a>
-            <a href="shop.html">Shop</a>
-            <a href="about.html">About</a>
-            <a href="services.html" class="active">Services</a>
-            <a href="contact.html">Contact</a>
-        </nav>
+
+    <header class="header">
+      <a href="home.html" class="logo">PORTFOLIO</a>
+      <div class="menu-toggle" id="menuToggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <nav class="navbar" id="navbar">
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="about.html">About</a>
+        <a href="services.html" class="active">Services</a>
+        <a href="contact.html">Contact</a>
+      </nav>
     </header>
 
     <section class="services-section">
-        <div class="services-header">
-            <h1>OUR SERVICES</h1>
-            <p>ADVANCED TECHNOLOGY SOLUTIONS FOR THE DIGITAL AGE</p>
-        </div>
+      <div class="services-header">
+        <h1>OUR SERVICES</h1>
+        <p>ADVANCED TECHNOLOGY SOLUTIONS FOR THE DIGITAL AGE</p>
+      </div>
 
-        <div class="services-grid">
-            <div class="service-card">
-                <i class='bx bx-code-alt'></i>
-                <h4>WEB DEVELOPMENT</h4>
-                <p>Building powerful, responsive websites with modern tech stacks.</p>
-            </div>
-            <div class="service-card">
-                <i class='bx bx-shield-quarter'></i>
-                <h4>CYBERSECURITY</h4>
-                <p>Protecting your digital assets with advanced security audits.</p>
-            </div>
-            <div class="service-card">
-                <i class='bx bx-sitemap'></i>
-                <h4>NETWORKING</h4>
-                <p>Designing robust fiber and enterprise network infrastructures.</p>
-            </div>
-            <div class="service-card">
-                <i class='bx bx-mobile-alt'></i>
-                <h4>APP DESIGN</h4>
-                <p>Creating intuitive and user-friendly mobile application interfaces.</p>
-            </div>
-            <div class="service-card">
-                <i class='bx bx-data'></i>
-                <h4>DATABASE MGMT</h4>
-                <p>Optimizing data storage and retrieval for maximum efficiency.</p>
-            </div>
-            <div class="service-card">
-                <i class='bx bx-cloud-upload'></i>
-                <h4>CLOUD SOLUTIONS</h4>
-                <p>Seamlessly migrating and managing your business in the cloud.</p>
-            </div>
-            <div class="service-card">
-                <i class='bx bx-bot'></i>
-                <h4>AUTOMATION</h4>
-                <p>Streamlining workflows with n8n and Python scripts.</p>
-            </div>
-            <div class="service-card">
-                <i class='bx bx-support'></i>
-                <h4>IT CONSULTING</h4>
-                <p>Expert advice to help your business grow with technology.</p>
-            </div>
+      <div class="services-grid">
+        <div class="service-card">
+          <i class="bx bx-code-alt"></i>
+          <h4>WEB DEVELOPMENT</h4>
+          <p>Building powerful, responsive websites with modern tech stacks.</p>
         </div>
+        <div class="service-card">
+          <i class="bx bx-shield-quarter"></i>
+          <h4>CYBERSECURITY</h4>
+          <p>Protecting your digital assets with advanced security audits.</p>
+        </div>
+        <div class="service-card">
+          <i class="bx bx-sitemap"></i>
+          <h4>NETWORKING</h4>
+          <p>Designing robust fiber and enterprise network infrastructures.</p>
+        </div>
+        <div class="service-card">
+          <i class="bx bx-mobile-alt"></i>
+          <h4>APP DESIGN</h4>
+          <p>
+            Creating intuitive and user-friendly mobile application interfaces.
+          </p>
+        </div>
+        <div class="service-card">
+          <i class="bx bx-data"></i>
+          <h4>DATABASE MGMT</h4>
+          <p>Optimizing data storage and retrieval for maximum efficiency.</p>
+        </div>
+        <div class="service-card">
+          <i class="bx bx-cloud-upload"></i>
+          <h4>CLOUD SOLUTIONS</h4>
+          <p>Seamlessly migrating and managing your business in the cloud.</p>
+        </div>
+        <div class="service-card">
+          <i class="bx bx-bot"></i>
+          <h4>AUTOMATION</h4>
+          <p>Streamlining workflows with n8n and Python scripts.</p>
+        </div>
+        <div class="service-card">
+          <i class="bx bx-support"></i>
+          <h4>IT CONSULTING</h4>
+          <p>Expert advice to help your business grow with technology.</p>
+        </div>
+      </div>
 
-        <div class="services-footer">
-            <button class="btn-grow-main">LET'S GROW TOGETHER</button>
-            <div class="contact-bar">
-                <div><i class='bx bxs-phone'></i> 09-695393420</div>
-                <div>|</div>
-                <div><i class='bx bxs-envelope'></i> minkhant97760@gmail.com</div>
-            </div>
+      <div class="services-footer">
+        <button class="btn-grow-main">LET'S GROW TOGETHER</button>
+        <div class="contact-bar">
+          <div><i class="bx bxs-phone"></i> 09-695393420</div>
+          <div>|</div>
+          <div><i class="bx bxs-envelope"></i> minkhant97760@gmail.com</div>
         </div>
+      </div>
     </section>
 
     <!-- Modal -->
     <div id="serviceModal" class="s-modal">
-        <div class="s-modal-content">
-            <span class="s-close">&times;</span>
-            <i id="s-modal-icon" class='bx'></i>
-            <h1 id="s-modal-title">Service Title</h1>
-            <p id="s-modal-desc">Details...</p>
-            <button class="s-btn-contact">INQUIRE NOW</button>
-        </div>
+      <div class="s-modal-content">
+        <span class="s-close">&times;</span>
+        <i id="s-modal-icon" class="bx"></i>
+        <h1 id="s-modal-title">Service Title</h1>
+        <p id="s-modal-desc">Details...</p>
+        <button class="s-btn-contact">INQUIRE NOW</button>
+      </div>
     </div>
 
     <script>
-        const menuToggle = document.getElementById('menuToggle');
-        const navbar = document.getElementById('navbar');
-        menuToggle.addEventListener('click', () => {
-            navbar.classList.toggle('active');
-        });
+      const menuToggle = document.getElementById("menuToggle");
+      const navbar = document.getElementById("navbar");
+      menuToggle.addEventListener("click", () => {
+        navbar.classList.toggle("active");
+      });
     </script>
     <script>
-        // --- JS Section ---
-        const cards = document.querySelectorAll('.service-card');
-        const sModal = document.getElementById('serviceModal');
-        const sClose = document.querySelector('.s-close');
+      // --- JS Section ---
+      const cards = document.querySelectorAll(".service-card");
+      const sModal = document.getElementById("serviceModal");
+      const sClose = document.querySelector(".s-close");
 
-        // 3D Tilt Effect
-        cards.forEach(card => {
-            card.addEventListener('mousemove', (e) => {
-                const rect = card.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                const centerX = rect.width / 2;
-                const centerY = rect.height / 2;
-                const rotateX = (y - centerY) / 15;
-                const rotateY = (centerX - x) / 15;
-                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-10px)`;
-            });
-            card.addEventListener('mouseleave', () => {
-                card.style.transform = `perspective(1000px) rotateX(0) rotateY(0) translateY(0)`;
-            });
+      // 3D Tilt Effect
+      cards.forEach((card) => {
+        card.addEventListener("mousemove", (e) => {
+          const rect = card.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          const centerX = rect.width / 2;
+          const centerY = rect.height / 2;
+          const rotateX = (y - centerY) / 15;
+          const rotateY = (centerX - x) / 15;
+          card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-10px)`;
         });
-
-        // Modal Logic
-        const details = {
-            "WEB DEVELOPMENT": "High-performance websites using modern frameworks.",
-            "CYBERSECURITY": "Advanced security audits and protection.",
-            "NETWORKING": "Fiber optic and enterprise network solutions.",
-            "APP DESIGN": "User-centric mobile and desktop designs.",
-            "DATABASE MGMT": "Efficient data storage and optimization.",
-            "CLOUD SOLUTIONS": "Secure cloud migration and management.",
-            "AUTOMATION": "Task automation with Python and n8n.",
-            "IT CONSULTING": "Strategic technology planning for growth."
-        };
-
-        cards.forEach(card => {
-            card.addEventListener('click', () => {
-                const title = card.querySelector('h4').innerText;
-                const iconClass = card.querySelector('i').className;
-                document.getElementById('s-modal-title').innerText = title;
-                document.getElementById('s-modal-icon').className = iconClass;
-                document.getElementById('s-modal-desc').innerText = details[title] || "More info coming soon...";
-                sModal.style.display = "flex";
-            });
+        card.addEventListener("mouseleave", () => {
+          card.style.transform = `perspective(1000px) rotateX(0) rotateY(0) translateY(0)`;
         });
+      });
 
-        sClose.onclick = () => sModal.style.display = "none";
-        window.onclick = (e) => { if(e.target == sModal) sModal.style.display = "none"; };
+      // Modal Logic
+      const details = {
+        "WEB DEVELOPMENT": "High-performance websites using modern frameworks.",
+        CYBERSECURITY: "Advanced security audits and protection.",
+        NETWORKING: "Fiber optic and enterprise network solutions.",
+        "APP DESIGN": "User-centric mobile and desktop designs.",
+        "DATABASE MGMT": "Efficient data storage and optimization.",
+        "CLOUD SOLUTIONS": "Secure cloud migration and management.",
+        AUTOMATION: "Task automation with Python and n8n.",
+        "IT CONSULTING": "Strategic technology planning for growth.",
+      };
+
+      cards.forEach((card) => {
+        card.addEventListener("click", () => {
+          const title = card.querySelector("h4").innerText;
+          const iconClass = card.querySelector("i").className;
+          document.getElementById("s-modal-title").innerText = title;
+          document.getElementById("s-modal-icon").className = iconClass;
+          document.getElementById("s-modal-desc").innerText =
+            details[title] || "More info coming soon...";
+          sModal.style.display = "flex";
+        });
+      });
+
+      sClose.onclick = () => (sModal.style.display = "none");
+      window.onclick = (e) => {
+        if (e.target == sModal) sModal.style.display = "none";
+      };
     </script>
-</body>
+  </body>
 </html>

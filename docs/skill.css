@@ -232,3 +232,129 @@ body {
     font-weight: 500;
     color: #fff; 
 }
+
+/* Hamburger Menu */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 0.5rem;
+    z-index: 101;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 2.5rem;
+    height: 0.3rem;
+    background: #ffcc00;
+    border-radius: 2px;
+    transition: .3s ease;
+}
+
+@media (max-width: 992px) {
+    .skills-section {
+        padding: 120px 5% 40px;
+    }
+
+    .skills-container {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .skills-column {
+        min-width: 100%;
+    }
+
+    .radial-bars-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .header {
+        padding: 1.2rem 5%;
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+
+    .navbar {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 70%;
+        height: 100vh;
+        background: rgba(13, 13, 13, 0.95);
+        backdrop-filter: blur(10px);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 1.5rem;
+        transition: .3s ease;
+        border-left: 1px solid rgba(255, 204, 0, 0.1);
+        z-index: 100;
+    }
+
+    .navbar.active {
+        right: 0;
+    }
+
+    .navbar a {
+        margin-left: 0;
+        font-size: 1.2rem;
+    }
+
+    .skills-section {
+        padding: 100px 4% 30px;
+    }
+
+    .skills-title {
+        font-size: 20px;
+        margin-bottom: 30px;
+    }
+
+    .radial-bars-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+    }
+
+    .radial-bar {
+        width: 120px;
+        height: 140px;
+    }
+
+    .radial-bar svg {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+@media (max-width: 576px) {
+    .skills-section {
+        padding: 80px 3% 20px;
+    }
+
+    .skills-title {
+        font-size: 18px;
+    }
+
+    .radial-bars-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .radial-bar {
+        width: 110px;
+        height: 130px;
+    }
+
+    .skill-bar .info p {
+        font-size: 14px;
+    }
+
+    .bar-line {
+        height: 6px;
+    }
+}

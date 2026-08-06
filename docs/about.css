@@ -152,3 +152,141 @@ p { font-size: 0.8rem; margin: 6px 0; }
 
 /* Logs */
 .log-content { font-size: 0.7rem; color: #777; height: 80px; overflow: hidden; }
+
+/* Hamburger Menu */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 0.5rem;
+    z-index: 101;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 2.5rem;
+    height: 0.3rem;
+    background: var(--main);
+    border-radius: 2px;
+    transition: .3s ease;
+}
+
+@media (max-width: 992px) {
+    .system-container {
+        padding: 100px 4% 30px;
+    }
+
+    .main-header h1 {
+        font-size: 2.5rem;
+        letter-spacing: 4px;
+    }
+
+    .grid-layout {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .notification-box {
+        min-height: 140px;
+    }
+
+    .profile-frame {
+        width: 180px;
+        height: 180px;
+    }
+
+    .quote-container {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .header {
+        padding: 1.2rem 5%;
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+
+    .navbar {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 70%;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.95);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 1.5rem;
+        transition: .3s ease;
+        border-left: 1px solid var(--main-dim);
+    }
+
+    .navbar.active {
+        right: 0;
+    }
+
+    .navbar a {
+        margin-left: 0;
+        font-size: 1.2rem;
+    }
+
+    .system-container {
+        padding: 80px 3% 20px;
+    }
+
+    .main-header h1 {
+        font-size: 2rem;
+        letter-spacing: 2px;
+    }
+
+    .header-sub p {
+        font-size: 0.7rem;
+    }
+
+    .profile-frame {
+        width: 150px;
+        height: 150px;
+    }
+
+    .quote-container {
+        font-size: 1.5rem;
+    }
+
+    .stats-list {
+        flex-direction: column;
+        gap: 5px;
+    }
+}
+
+@media (max-width: 576px) {
+    .main-header h1 {
+        font-size: 1.6rem;
+    }
+
+    .profile-frame {
+        width: 120px;
+        height: 120px;
+    }
+
+    .quote-container {
+        font-size: 1.2rem;
+    }
+
+    .box-inner {
+        padding: 15px 10px 10px;
+    }
+
+    .radial-bar {
+        width: 120px;
+        height: 150px;
+    }
+
+    .radial-bar svg {
+        width: 100px;
+        height: 100px;
+    }
+}

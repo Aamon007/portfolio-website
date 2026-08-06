@@ -17,14 +17,19 @@
 
 <body>
     <!-- Header / Navigation Bar Section -->
-    <header class="header">
+<header class="header">
         <a href="#" class="logo">Portfolio</a>
-        <nav class="navbar">
+        <div class="menu-toggle" id="menuToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <nav class="navbar" id="navbar">
             <a href="#home" class="active">Home</a>
             <a href="shop.html">Shop</a>
             <a href="skill.html">Skill</a>
             <a href="#portfolio">Portfolio</a>
-            <a href="contant.html">Contact</a>
+            <a href="contact.html">Contact</a>
         </nav>
     </header>
 
@@ -72,6 +77,13 @@
         
     </section>
 
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const navbar = document.getElementById('navbar');
+        menuToggle.addEventListener('click', () => {
+            navbar.classList.toggle('active');
+        });
+    </script>
     <!-- Type Animation Script -->
     <script>
         const words = ["Frontend Developer", "Graphic Designer", "Network Engineer", "Programmer", "Cyber Security", "Ethical Hacker"]; //

@@ -343,3 +343,161 @@ body {
 #cartSidebar.active {
     right: 0 !important;
 }
+
+/* Hamburger Menu */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 0.5rem;
+    z-index: 101;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 2.5rem;
+    height: 0.3rem;
+    background: #ffcc00;
+    border-radius: 2px;
+    transition: .3s ease;
+}
+
+@media (max-width: 992px) {
+    .shop-container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        padding: 2rem 5%;
+        border-right: none;
+        border-bottom: 1px solid #222;
+    }
+
+    .filter-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+
+    .filter-list li {
+        padding: 0.8rem 1.5rem;
+    }
+
+    .price-range {
+        margin: 1.5rem 0;
+    }
+
+    .main-content {
+        padding: 2rem 5%;
+    }
+
+    .shop-header h1 {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    .product-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+    }
+
+    .modal-body {
+        flex-direction: column;
+        gap: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .header {
+        padding: 1.2rem 5%;
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+
+    .navbar {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 70%;
+        height: 100vh;
+        background: rgba(13, 13, 13, 0.95);
+        backdrop-filter: blur(10px);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 1.5rem;
+        transition: .3s ease;
+        border-left: 1px solid #222;
+        z-index: 100;
+    }
+
+    .navbar.active {
+        right: 0;
+    }
+
+    .navbar a {
+        margin-left: 0;
+        font-size: 1.3rem;
+    }
+
+    body {
+        padding-top: 70px;
+    }
+
+    .product-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .modal-content {
+        width: 95%;
+        padding: 20px;
+    }
+
+    .modal-details h1 {
+        font-size: 2.5rem;
+    }
+
+    .cart-icon {
+        top: 1rem;
+        right: 1rem;
+    }
+
+    #cartSidebar {
+        width: 100%;
+        right: -100%;
+    }
+}
+
+@media (max-width: 576px) {
+    .shop-header h3 {
+        font-size: 0.9rem;
+    }
+
+    .shop-header h1 {
+        font-size: 1.5rem;
+    }
+
+    .filter-section h3 {
+        font-size: 1.1rem;
+    }
+
+    .product-card {
+        padding: 1.5rem;
+    }
+
+    .modal-details h1 {
+        font-size: 2rem;
+    }
+
+    .modal-details h3 {
+        font-size: 1rem;
+    }
+
+    #modalPrice {
+        font-size: 1.5rem;
+    }
+}

@@ -11,14 +11,19 @@
 <body>
     <div class="bg-overlay"></div>
     
-    <header class="header">
+<header class="header">
         <a href="#" class="logo">PORTFOLIO</a>
-        <nav class="navbar">
+        <div class="menu-toggle" id="menuToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <nav class="navbar" id="navbar">
             <a href="index.html">Home</a>
             <a href="shop.html">Shop</a>
             <a href="about.html" class="active">About</a>
             <a href="skill.html">Skill</a>
-            <a href="contant.html">Contact</a>
+            <a href="contact.html">Contact</a>
         </nav>
     </header>
 
@@ -125,6 +130,13 @@
             </div>
         </div>
     </div>
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const navbar = document.getElementById('navbar');
+        menuToggle.addEventListener('click', () => {
+            navbar.classList.toggle('active');
+        });
+    </script>
     <script src="about.js"></script>
 </body>
 </html>

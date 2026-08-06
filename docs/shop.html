@@ -8,16 +8,21 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
-         <header class="header">
-            <a href="home.html" class="logo">Portfolio.</a>
-            <nav class="navbar">
-                <a href="index.html">Home</a>
-                <a href="about.html">About</a>
-                <a href="service.html">Services</a>
-                <a href="skill.html">Skills</a>
-                <a href="shop.html" class="active">Shop</a> <a href="contant.html">Contact</a>
-            </nav>
-         </header>
+<header class="header">
+             <a href="home.html" class="logo">Portfolio.</a>
+             <div class="menu-toggle" id="menuToggle">
+                 <span></span>
+                 <span></span>
+                 <span></span>
+             </div>
+             <nav class="navbar" id="navbar">
+                 <a href="index.html">Home</a>
+                 <a href="about.html">About</a>
+                 <a href="service.html">Services</a>
+                 <a href="skill.html">Skills</a>
+                 <a href="shop.html" class="active">Shop</a> <a href="contact.html">Contact</a>
+             </nav>
+          </header>
 
     <div class="shop-container">
         <aside class="sidebar">
@@ -110,6 +115,13 @@
 </div>
 
 
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const navbar = document.getElementById('navbar');
+        menuToggle.addEventListener('click', () => {
+            navbar.classList.toggle('active');
+        });
+    </script>
     <script src="shop.js"></script>
 </body>
 </html>

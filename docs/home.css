@@ -285,7 +285,188 @@ h1.wave-text span:nth-child(12) { animation-delay: 2.5s; }
     padding-right: 5px;
 }
 
-@keyframes blinkCursor {
-    from, to { border-color: transparent }
-    50% { border-color: #ffcc00; }
+/* Hamburger Menu */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 0.5rem;
+    z-index: 101;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 2.5rem;
+    height: 0.3rem;
+    background: var(--main-color);
+    border-radius: 2px;
+    transition: .3s ease;
+}
+
+@media (max-width: 992px) {
+    .home {
+        height: auto;
+        min-height: 100vh;
+        flex-direction: column-reverse;
+        padding: 10rem 5% 5rem;
+        text-align: center;
+    }
+
+    .home-content h3 {
+        font-size: 2.4rem;
+    }
+
+    .home-content h1 {
+        font-size: 4rem;
+    }
+
+    h1.wave-text {
+        font-size: 2.8rem;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .home-content p {
+        font-size: 1.4rem;
+        margin: 1.5rem auto 3rem;
+        max-width: 100%;
+    }
+
+    .home-img {
+        width: 25rem;
+        height: 25rem;
+        margin-bottom: 3rem;
+    }
+
+    .home-icon {
+        margin-bottom: 2rem;
+    }
+
+    .home-icon a {
+        width: 3.5rem;
+        height: 3.5rem;
+        font-size: 1.6rem;
+        margin: 0 0.8rem 0 0;
+    }
+
+    .change-text {
+        min-width: 250px;
+    }
+}
+
+@media (max-width: 768px) {
+    .header {
+        padding: 1.5rem 5%;
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+
+    .navbar {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 70%;
+        height: 100vh;
+        background: rgba(10, 10, 10, 0.95);
+        backdrop-filter: blur(10px);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2rem;
+        transition: .3s ease;
+        border-left: 1px solid rgba(255, 204, 0, 0.1);
+    }
+
+    .navbar.active {
+        right: 0;
+    }
+
+    .navbar a {
+        margin-left: 0;
+        font-size: 1.5rem;
+        animation: none;
+        opacity: 1;
+    }
+
+    .home {
+        padding: 8rem 5% 4rem;
+    }
+
+    .home-content h3 {
+        font-size: 2rem;
+    }
+
+    .home-content h1 {
+        font-size: 3rem;
+    }
+
+    h1.wave-text {
+        font-size: 2.2rem;
+    }
+
+    .home-content p {
+        font-size: 1.2rem;
+    }
+
+    .home-img {
+        width: 20rem;
+        height: 20rem;
+    }
+
+    .home-icon a {
+        width: 3rem;
+        height: 3rem;
+        font-size: 1.3rem;
+    }
+
+    .change-text {
+        min-width: 200px;
+    }
+
+    .btn {
+        padding: 1rem 2.5rem;
+        font-size: 1.4rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .home-content h1 {
+        font-size: 2.5rem;
+    }
+
+    h1.wave-text {
+        font-size: 1.8rem;
+    }
+
+    .home-content h3 {
+        font-size: 1.6rem;
+    }
+
+    .home-content p {
+        font-size: 1.1rem;
+    }
+
+    .home-img {
+        width: 16rem;
+        height: 16rem;
+    }
+
+    .home-icon a {
+        width: 2.5rem;
+        height: 2.5rem;
+        font-size: 1.1rem;
+        margin: 0 0.5rem 0 0;
+    }
+
+    .change-text {
+        min-width: 160px;
+    }
+
+    .btn {
+        padding: 0.8rem 2rem;
+        font-size: 1.2rem;
+    }
 }
